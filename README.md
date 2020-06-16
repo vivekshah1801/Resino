@@ -1,5 +1,6 @@
 # Resino-Backend
-#1
+
+
 ### Installation Guide
 
 * The backend for this repo is handled using APIs created using **nodejs**.
