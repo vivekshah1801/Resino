@@ -7,6 +7,7 @@ INTO
 user(student_id,name,branch,sem,email,password,contact,university) 
 VALUES('18ceuog092','dhruval','CE', 4, 'abc@gmaill.com','1234',1234567890 , 'Dharmsinh Desai University');
 
+
 #Inserting values in  subject table
 
 INSERT 
@@ -19,6 +20,7 @@ INSERT
 INTO 
 exam(exam_id,exam_type,max_marks,exam_year,subject_id)
 VALUES('CE001', 'sessional', 36, 2020, 'JT001');
+
 
 #Inserting values in  marks table
 INSERT 

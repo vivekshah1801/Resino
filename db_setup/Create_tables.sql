@@ -25,7 +25,7 @@ CREATE TABLE subject (
 	credit varchar(4),
 	isElective BOOLEAN
 	
-)
+);
 
 #--Query to create exam table
 
