@@ -1,0 +1,25 @@
+{
+  "name": "com.csi.resino",
+  "version": "1.0.0",
+  "description": "Resino Project ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nevilparmar11/Resino.git"
+  },
+  "author": "nevil",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nevilparmar11/Resino/issues"
+  },
+  "homepage": "https://github.com/nevilparmar11/Resino#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.2.0"
+  }
+}
