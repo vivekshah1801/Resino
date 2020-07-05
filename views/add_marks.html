@@ -1,0 +1,199 @@
+<html>
+    <head>
+        <title>Enter Marks</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+         <!-- NAVBAR STARTS -->
+
+      <nav class="navbar navbar-expand-lg site-header sticky-top py-1"  style= "background-color: #f4eeff">
+     
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+          <a class="py-2" href="/" aria-label="Product">
+            <svg xmlns="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSvPFOw1bQ5mtMPkEn_iUwLcSGFksFHEq9BAA&usqp=CAU" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 25 25" focusable="false">
+        <title>Logo</title>
+        <circle cx="12" cy="12" r="11"/>
+        <path xmlns="https://i.pinimg.com/originals/4a/8a/f3/4a8af3d932e3d5b4f83f6bdd99e45e3b.png"/>
+            </svg>
+          </a>
+          <a class="py-2 d-none d-md-inline-block" href="/register"> Register </a>
+          <a class="py-2 d-none d-md-inline-block" href="#"> Meet our team </a>
+          <a class="py-2 d-none d-md-inline-block" href="logout"> Logout </a>
+
+        </div>
+      </nav>
+
+      <!-- NAVBAR ENDS -->
+    <div style="margin-top: 40;" >
+        <div class="container">
+            <h3>Enter Marks</h3>
+            <form method="POST">
+                <div class="form-group">
+                    <label>Semester: </label>&nbsp;
+                    <select name="sem" id="sem" onchange="populate_subject()"></select>
+                </div>
+                <div class="form-group">
+                    <label>Subject: </label>&nbsp;
+                    <select name="sub_id" id="sub_id" onchange="get_exam_id()"></select>
+                </div>
+                <div class="form-group">
+                    <label>Exam type: </label>&nbsp;
+                    <select name="exam_type" id="type" onchange="get_exam_id()">
+                        <option value="Sessional_1">Sessional 1</option>
+                        <option value="Sessional_2">Sessional 2</option>
+                        <option value="Sessional_3">Sessional 3</option>
+                        <option value="External">External</option>
+                        <option value="Viva">Viva</option>
+                        <option value="Practical">Practical</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Marks/Subject Points: </label>&nbsp;
+                    <input type="number" name="marks" id="marks">
+                </div>
+                <div class="form-group">
+                    <label>Status: </label>&nbsp;
+                    <select name="status" id="status">
+                        <option value="Present">Present</option>
+                        <option value="Absent">Absent</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary" id="submit">Submit</button>
+            </form>
+        </div>
+        </div>
+         <!-- footer-->
+      
+      <footer class="blog-footer" style="text-align:center;  background-color: #beebe9; position: absolute; bottom: 0; width: 100%;">
+        <p>Thank you      <a href="">   Resino    </a> by   <a href="www.csi.ac.in">  @csi  </a>  . </p>
+        <p>
+          <a href="#">Back to top</a> | <a href="/dashboard">Back to DashBoard</a>
+        </p>
+      </footer>
+      
+      <!-- footer ends-->
+
+    </body>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        var branch, batch, sem;
+        $(document).ready( function(){
+            let param = new URLSearchParams(window.location.search)
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:3000/current_user",
+                success: function(result){
+                    if (result.length > 0)
+                    {
+                        console.log(result[0])
+                        branch = result[0].branch
+                        batch = result[0].Batch
+
+                        // populate semester based on year of joining of user
+                        var today = new Date();
+                        var year = today.getFullYear()
+                        var month = today.getMonth() + 1
+                        var semester = (year - result[0].Batch) * 2
+                        if (month>6)
+                            semester+=1;
+                        var selectHTML;
+                        $("#sem").empty();
+                        $("#sem").append("<option value=''>select</option>")
+                        for (let i = 1; i <= semester; i++) 
+                        {
+                            selectHTML = "<option value='"+i+"'>"+ i +"</option>";
+                            $("#sem").append(selectHTML);
+                        }
+                    }
+                    else
+                    {
+                        console.log("user not registered")
+                        window.location.href = '/register'
+                    }
+                }
+            })
+        })
+        
+        function populate_subject(){
+            $.ajax({
+                type: "POST",
+                url:"http://localhost:3000/current_subs",
+                dataType: "json",
+                data: {
+                    batch : batch,
+                    branch : branch,
+                    sem : document.getElementById("sem").value
+                },
+                success: function(result){
+                    var selectHTML;
+                    $("#sub_id").empty();
+                    $("#sub_id").append("<option value=''>select</option>")
+                    for (let i = 0; i < result.length; i++) 
+                    {
+                        selectHTML = "<option value='"+result[i].subject_id+"'>"+ result[i].subject_id + " - " + result[i].Subject_name +"</option>";
+                        console.log( result[i].subject_id + " - " + result[i].Subject_name )
+                        $("#sub_id").append(selectHTML);
+                    }
+                },
+                failure: function(err){
+                    console.log(err);
+                }
+            })
+        }
+    </script>
+    <script>
+        var exam_id, max_mks
+        function get_exam_id(){
+            $.ajax({
+                type: "POST",
+                url:"http://localhost:3000/get_exam_id",
+                dataType: "json",
+                data: {
+                    sub_id : document.getElementById("sub_id").value,
+                    type : document.getElementById("type").value                    
+                },
+                success: function(result){
+                    console.log(result[0])
+                    exam_id = result[0].exam_id
+                    max_mks = result[0].max_marks                    
+                },
+                failure: function(err){
+                    console.log(err);
+                }
+            })
+        }
+        
+        $(document).ready(function(){
+            $("#submit").click(function(){
+                let param = new URLSearchParams(window.location.search)
+                if ( document.getElementById('marks').value=="" )
+                    alert("Enter marks")
+                else if ( document.getElementById('marks').value<0 || document.getElementById('marks').value>max_mks )
+                    alert("Enter valid marks")
+                else
+                {
+                    $.ajax({
+                        type: "POST",
+                        url:"http://localhost:3000/marks",
+                        dataType: "json",
+                        data: {
+                            exam_id : exam_id,
+                            marks : document.getElementById('marks').value,
+                            status: document.getElementById('status').value
+                        },
+                        success: function(result){
+                            console.log(result)
+                            alert("marks entered")
+                        },
+                        failure: function(err){
+                            console.log(err);
+                        }
+                    })
+                }
+            })
+        })
+    </script>
+</html>
