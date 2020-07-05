@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <title>Register</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+    </head>
+    <body>
+         <!-- NAVBAR STARTS -->
+
+         <nav class="navbar navbar-expand-lg site-header sticky-top py-1"  style= "background-color: #f4eeff">
+     
+            <div class="container d-flex flex-column flex-md-row justify-content-between">
+              <a class="py-2" href="/" aria-label="Product">
+                <svg xmlns="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSvPFOw1bQ5mtMPkEn_iUwLcSGFksFHEq9BAA&usqp=CAU" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 25 25" focusable="false">
+            <title>Logo</title>
+            <circle cx="12" cy="12" r="11"/>
+            <path xmlns="https://i.pinimg.com/originals/4a/8a/f3/4a8af3d932e3d5b4f83f6bdd99e45e3b.png"/>
+                </svg>
+              </a>
+              <a class="py-2 d-none d-md-inline-block" href="/register"> Register </a>
+              <a class="py-2 d-none d-md-inline-block" href="#"> Meet our team </a>
+              <a class="py-2 d-none d-md-inline-block" href="/login"> Login </a>
+
+            </div>
+          </nav>
+
+      <!-- NAVBAR ENDS -->
+    <div style="margin-top: 40;" >
+        <div class="container">
+            <h3>Register Yourself</h3>
+            <form method="POST">
+                <div class="form-group">
+                    <label>Student ID: </label>&nbsp;
+                    <input type="text" class="form-control" id="ID">
+                </div>
+                <div class="form-group">
+                    <label>Name: </label>&nbsp;
+                    <input type="text" class="form-control" id="name">
+                </div>
+                <div class="form-group">
+                    <label>Password: </label>&nbsp;
+                    <input type="password" class="form-control" id="pass">
+                </div>
+                <div class="form-group">
+                    <label>Branch: </label>&nbsp;
+                    
+                    <select class="form-control" id="branch">
+                        <option value="">--select--</option>
+                        <option value="CE">CE</option>
+                        <option value="IT">IT</option>
+                        <option value="EC">EC</option>
+                        <option value="CH">CH</option>
+                        <option value="CL">CL</option>
+                        <option value="MH">MH</option>
+                        <option value="IC">IC</option>
+                      </select>
+                    <!-- <input type="text" class="form-control" id="branch"> -->
+                </div>
+                <div class="form-group">
+                    <label>Semester: </label>&nbsp;
+                    <select name="sem" id="sem" class="form-control" >
+                        <option value="">--select--</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                    <!-- <input type="number" class="form-control" id="sem"> -->
+                </div>
+                <div class="form-group">
+                    <label>E-mail: </label>&nbsp;
+                    <input type="email" class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                    <label>Contact No.: </label>&nbsp;
+                    <input type="number" class="form-control" id="contact" size="10">
+                </div>
+                <div class="form-group">
+                    <label>University: </label>&nbsp;
+                    <input type="text" class="form-control" id="univ">
+                </div>
+                <div class="form-group">
+                    <label>Year of joining: </label>&nbsp;
+                    <input type="number" class="form-control" id="batch">
+                </div>
+                <button type="button" class="btn btn-primary" id="submit">Submit</button>
+            </form>
+        </div>
+        </div>
+         <!-- footer-->
+      
+      <footer class="blog-footer" style="text-align:center; background-color: #beebe9; height: 12%;">
+        <p>Thank you      <a href="/">   Resino    </a> by   <a href="www.csi.ac.in">  @csi  </a>  . </p>
+        <p>
+          <a href="#">Back to top</a>
+        </p>
+      </footer>
+      
+      <!-- footer ends-->
+
+    </body>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready( function(){
+            $("#submit").click(function(){
+                console.log("submit");
+                var con = document.getElementById("contact").value
+                if ( document.getElementById("ID").value == "")
+                    alert("ID is required");
+                else if ( document.getElementById("name").value == "")
+                    alert("name is required");
+                else if ( document.getElementById("pass").value == "")
+                    alert("password is required");
+                else if ( document.getElementById("branch").value == "")
+                    alert("branch is required");
+                else if ( document.getElementById("sem").value == "")
+                    alert("sem is required");
+                else if ( document.getElementById("email").value == "")
+                    alert("email is required");
+                else if ( document.getElementById("contact").value == "")
+                    alert("Contact number is required");
+                else if ( $("#contact").val().length != 10)
+                    alert("Enter valid contact number");
+                else if ( document.getElementById("univ").value == "")
+                    alert("university is required");
+                else if ( document.getElementById("batch").value == "")
+                    alert("Year of joining is required");
+                else 
+                {
+                    $.ajax({
+                        type: "POST",
+                        url:"http://localhost:3000/register_user",
+                        dataType: "json",
+                        data: {
+                            ID : document.getElementById("ID").value,
+                            name : document.getElementById("name").value,
+                            pass : document.getElementById("pass").value,
+                            branch : document.getElementById("branch").value,
+                            sem : document.getElementById("sem").value,
+                            email : document.getElementById("email").value,
+                            contact : document.getElementById("contact").value,
+                            univ : document.getElementById("univ").value,
+                            batch : document.getElementById("batch").value
+                        },
+                        success: function(result){
+                            console.log(JSON.stringify(result));
+                            window.location.href = '/dashboard'; 
+                        },
+                        failure: function(err){
+                            console.log(err);
+                        }
+                    })
+                }
+            })
+        })
+    </script>
+
+</html>
