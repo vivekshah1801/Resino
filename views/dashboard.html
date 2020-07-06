@@ -25,9 +25,9 @@
       </nav>
 
       <!-- NAVBAR ENDS -->
-        <div style="margin-top: 40;">
-        <div class="container">
-            <h3 id="heading">Welcome <span id="user">User</span> </h3>
+        <div style="margin: 10;">
+            <div class="container col-md-7" style="border-style: solid; border-width: 1; border-radius: 25px; padding: 25px; padding-left: 25px; padding-right: 25px;">
+                <u><h3 id="heading">Welcome <span id="user">User</span> </h3></u><br>
             
             <h5>Enter SPI for &nbsp; 
                 <select name="sem" id="1sem">
@@ -156,7 +156,7 @@
             var branch
             $.ajax({
                 type: "GET",
-                url: "http://localhost:3000/current_user?ID="+param.get('ID'),
+                url: "http://localhost:3000/current_user",
                 success: function(result){
                     if (result.length > 0)
                     {
@@ -242,44 +242,44 @@
             })
             $("#sem_wise").click(function(){
                 console.log("btn clicked")
-                window.location.href = "/sem_wise?ID=" + param.get('ID')
+                window.location.href = "/sem_wise"
             })
             $("#sem_avg").click(function(){
                 console.log("btn clicked")
-                window.location.href = "/sem_avg?ID=" + param.get('ID') + "&branch=" + branch
+                window.location.href = "/sem_avg?branch=" + branch
             })
 
             $("#each_sess_avg1").click(function(){
                 console.log("btn clicked")
-                window.location.href = "/each_sess_avg?ID=" + param.get('ID') + "&sem=1&branch=" + branch
+                window.location.href = "/each_sess_avg?sem=1&branch=" + branch
             })
             $("#each_sess_avg2").click(function(){
                 console.log("btn clicked")
-                window.location.href = "/each_sess_avg?ID=" + param.get('ID') + "&sem=2&branch=" + branch
+                window.location.href = "/each_sess_avg?sem=2&branch=" + branch
             })
             $("#each_sess_avg3").click(function(){
                 console.log("btn clicked")
-                window.location.href = "/each_sess_avg?ID=" + param.get('ID') + "&sem=3&branch=" + branch
+                window.location.href = "/each_sess_avg?sem=3&branch=" + branch
             })
             $("#each_sess_avg4").click(function(){
                 console.log("btn clicked")
-                window.location.href = "/each_sess_avg?ID=" + param.get('ID') + "&sem=4&branch=" + branch
+                window.location.href = "/each_sess_avg?sem=4&branch=" + branch
             })
             $("#each_sess_avg5").click(function(){
                 console.log("btn clicked")
-                window.location.href = "/each_sess_avg?ID=" + param.get('ID') + "&sem=5&branch=" + branch
+                window.location.href = "/each_sess_avg?sem=5&branch=" + branch
             })
             $("#each_sess_avg6").click(function(){
                 console.log("btn clicked")
-                window.location.href = "/each_sess_avg?ID=" + param.get('ID') + "&sem=6&branch=" + branch
+                window.location.href = "/each_sess_avg?sem=6&branch=" + branch
             })
             $("#each_sess_avg7").click(function(){
                 console.log("btn clicked")
-                window.location.href = "/each_sess_avg?ID=" + param.get('ID') + "&sem=7&branch=" + branch
+                window.location.href = "/each_sess_avg?sem=7&branch=" + branch
             })
             $("#each_sess_avg8").click(function(){
                 console.log("btn clicked")
-                window.location.href = "/each_sess_avg?ID=" + param.get('ID') + "&sem=8&branch=" + branch
+                window.location.href = "/each_sess_avg?sem=8&branch=" + branch
             })
         })
     </script>

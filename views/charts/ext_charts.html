@@ -38,16 +38,18 @@
         <h2 style="font-family: 'Titillium Web', sans-serif; color: #355681;"><u><i>Semester: <script> let param = new URLSearchParams(window.location.search);
             document.write(param.get('sem'))
             </script> </i></u></h2>
-        <div class="chart-container" style="height:30vh; width:30vw; ">
+        <div class="chart-container" style="height:40vh; width:30vw; ">
             <canvas id="external-perf"></canvas> 
-            <canvas id="cpi" style="margin-left: 120%; margin-top: -99.7%;"></canvas>
+        </div>
+        <div class="chart-container" style="height:40vh; width:30vw; ">
+            <canvas id="cpi" style="margin-left: 120%; margin-top: -65%;"></canvas>
         </div>
     </div>
 
      <!-- footer-->
       
      <footer class="blog-footer" style="text-align: center; background-color: #beebe9; position: absolute; bottom: 0; width: 100%;">
-        <p>Thank you      <a href="/">   Resino    </a> by   <a href="www.csi.ac.in">  @csi  </a>  . </p>
+        <p>Thank you      <a href="/">   Resino    </a> by   <a href="">  @csi  </a>  . </p>
         <p>
           <a href="#">Back to top</a> | <a href="/dashboard">Back to DashBoard</a>
         </p>
@@ -102,12 +104,12 @@
                         if (sub.length==0)
                         {
                             alert("Marks not added");
-                            window.location.href = '/dashboard?ID=' + param.get('ID')
+                            window.location.href = '/dashboard'
                         }
                         var ctx2 = document.getElementById('external-perf').getContext('2d');
                         var ctx3 = document.getElementById('cpi').getContext('2d');
                         var chart2 = new Chart(ctx2, {
-                            type: 'doughnut',
+                            type: 'bar',
 
                             data: {
                                 labels: sub,
@@ -121,11 +123,18 @@
                                 title: {
                                     display: true,
                                     text: 'External Marks/Points'
+                                },
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            min: 0,
+                                        }
+                                    }]
                                 }
                             }
                         });
                         var chart3 = new Chart(ctx3, {
-                            type: 'doughnut',
+                            type: 'bar',
 
                             data: {
                                 labels: sub,
@@ -139,6 +148,13 @@
                                 title: {
                                     display: true,
                                     text: 'Credits of each subject'
+                                },
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            min: 0,
+                                        }
+                                    }]
                                 }
                             }
                         });
@@ -147,7 +163,7 @@
                     else
                     {
                         console.log("marks not entered")
-                        window.location.href = '/dashboard?ID=' + param.get('ID')
+                        window.location.href = '/dashboard'
                     }
                 }
             })
