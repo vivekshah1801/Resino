@@ -9,42 +9,50 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
     
+    <style>
+        a:hover{
+            text-decoration: none
+        }
+        .font{
+          font-family: 'Poppins'
+        }
+    </style>
 </head>
 
-<body>
+<body style="background-color: #343A40">
     <!-- NAVBAR STARTS -->
 
-    <nav class="navbar navbar-expand-lg site-header sticky-top py-1"  style= "background-color: #f4eeff">
+    <nav class="navbar navbar-expand-lg site-header sticky-top py-1"  style= "background-color: #beebe9">
      
         <div class="container d-flex flex-column flex-md-row justify-content-between">
-          <a class="py-2" href="/" aria-label="Product">
-            <svg xmlns="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSvPFOw1bQ5mtMPkEn_iUwLcSGFksFHEq9BAA&usqp=CAU" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 25 25" focusable="false">
-        <title>Logo</title>
-        <circle cx="12" cy="12" r="11"/>
-        <path xmlns="https://i.pinimg.com/originals/4a/8a/f3/4a8af3d932e3d5b4f83f6bdd99e45e3b.png"/>
-            </svg>
+          <a class="py-2" href="/dashboard" aria-label="Product">
+            <img src="images/logo.png" style="height: 40px; margin-top: -5px"/><b><span style="margin-left: -17%;vertical-align: text-top; color: black; ">ESINO</span></b>
           </a>
-          <a class="py-2 d-none d-md-inline-block" href="/register"> Register </a>
-          <a class="py-2 d-none d-md-inline-block" href="#"> Meet our team </a>
-          <a class="py-2 d-none d-md-inline-block" href="logout"> Logout </a>
-        
+          <span style="color: grey; font-size: 25px " >|</span>
+          <a class="py-2 d-none d-md-inline-block font" href="/register"> Register </a> <span style="color: grey; font-size: 25px " >|</span> 
+          <a class="py-2 d-none d-md-inline-block font" href="/team"> Meet our team </a> <span style="color: grey; font-size: 25px " >|</span> 
+          <a class="py-2 d-none d-md-inline-block font" href="/logout"> Logout </a>
+
         </div>
       </nav>
 
       <!-- NAVBAR ENDS -->
-    <div class="container mt-2">
-    <h2 style="font-family: 'Titillium Web', sans-serif; color: #355681;"><u><i>Semester-wise comparison with class Average</i></u></h2>
+    <div class="container col-md-8 mt-4 mb-4" style="border-radius: 25px; background-color: snow; height: 500px; ">
+    <h2 style="padding-top: 15px;  color: #355681; text-align: center;  font-family: 'Poppins';letter-spacing: 1px"><b>Semester-wise comparison with class Average</b></h2>
     
         <!-- <button id="compare" type="button" class="btn btn-outline-primary" onclick="display()">Compare Class Average</button> -->
-        <div class="chart-container" style="height:22vh; width:33vw; ">
+        <div class="chart-container" style="height:22vh; width:33vw; margin-left: 20% ">
             <canvas id="semester_average"></canvas>
         </div>
     </div>
      <!-- footer-->
       
-     <footer class="blog-footer" style="text-align:center;  background-color: #beebe9; position: absolute; bottom: 0; width: 100%;">
-        <p>Thank you      <a href="/">   Resino    </a> by   <a href="www.csi.ac.in">  @csi  </a>  . </p>
+     <footer class="font" style="padding: 10px; text-align:center;  background-color: #beebe9; width: 100%; height: 87px;">
+        <p>Thank you      <a href="/">   Resino    </a> by   <a href="https://www.csiddu.in" target="_blank">  @csi  </a>  . </p>
         <p>
           <a href="#">Back to top</a> | <a href="/dashboard">Back to DashBoard</a>
         </p>

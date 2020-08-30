@@ -7,12 +7,14 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
      
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
 <style>
   .blog-footer {
-		padding: 2.5rem 0;
+		padding: 1rem 0;
 		text-align: center;
 		background-color: #beebe9;
 		border-top: .05rem solid #e5e5e5;
@@ -22,16 +24,15 @@
 		}
     .bg-img{
       background-image: url("https://image.freepik.com/free-photo/education-concept-students-studying-brainstorming-campus-concept-close-up-students-discussing-their-subject-books-textbooks-writing-notebook-selective-focus_1418-1221.jpg");
-	background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
 	  }
 	  
 	  .font{
-				font-family: "Lucida Console", Courier, monospace;
+				font-family: 'Poppins';
 				
-		font-size: 22px;
 	  }
 
 	  .center{
@@ -60,75 +61,73 @@
   overflow: hidden;
   background-color: #f1f1f1;
 }
-
+a:hover{
+  text-decoration: none
+}
 	
 </style>
   
 	</head>
 	
-	<body>
+	<body style="overflow-x: hidden">
 
         <!-- NAVBAR STARTS -->
 
-      <nav class="navbar navbar-expand site-header sticky-top py-1"  style= "background-color: #f4eeff">
+        <nav class="navbar navbar-expand-lg site-header sticky-top py-1"  style= "background-color: #beebe9">
      
-        <div class="container d-flex flex-column flex-md-row justify-content-between">
-          <a class="py-2" href="/" aria-label="Product">
-            <svg xmlns="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSvPFOw1bQ5mtMPkEn_iUwLcSGFksFHEq9BAA&usqp=CAU" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 25 25" focusable="false">
-        <title>Logo</title>
-        <circle cx="12" cy="12" r="11"/>
-        <path xmlns="https://i.pinimg.com/originals/4a/8a/f3/4a8af3d932e3d5b4f83f6bdd99e45e3b.png"/>
-            </svg>
-          </a>
-          <a class="py-2 d-none d-md-inline-block" href="/register"> Register </a>
-          <a class="py-2 d-none d-md-inline-block" href="#"> Meet our team </a>
-          <a class="py-2 d-none d-md-inline-block" href="/login"> Login </a>
-
-        </div>
-      </nav>
+          <div class="container d-flex flex-column flex-md-row justify-content-between">
+            <a class="py-2" href="/" aria-label="Product">
+              <img src="images/logo.png" style="height: 40px; margin-top: -5px"/><b><span style="margin-left: -17%;vertical-align: text-top; color: black; ">ESINO</span></b>
+            </a>
+            <span style="color: grey; font-size: 25px " >|</span>
+            <a class="py-2 d-none d-md-inline-block font" href="/register"> Register </a> <span style="color: grey; font-size: 25px " >|</span> 
+            <a class="py-2 d-none d-md-inline-block font" href="/team"> Meet our team </a> <span style="color: grey; font-size: 25px " >|</span> 
+            <a class="py-2 d-none d-md-inline-block font" href="/login"> Login </a>
+            
+          </div>
+        </nav>
 
       <!-- NAVBAR ENDS -->
 
       <!-- 	MAIN STARTS -->
 
-      <main role="main">
-        <div class="jumbotron" style= "background-color: #a1e6e3">
+      <main role="main" style="font-family: 'Poppins'" >
+        <div class="jumbotron" style= "background-color: #343A40; color: white">
           <div class="container">
-            <h3 class="display-3">Hello, guys!</h3>
-              <p> Welcome to our website..... <br>
-                  LETS GET STARTED...	  </p>
+            <h4 class="display-4">Welcome to our Result Analysis Engine...</h4>
+                <h4> LET'S WREAK HAVOC...	</h4>  
           </div>
         </div>
       </main>
       
     <!-- MAIN ENDS -->
-    <p class="text-center display-3" style="font-size:40px"> Test your knowledge</p>
+    <p class="text-center display-3" style="font-size:40px; font-family: 'Poppins'"> What do you Desire? </p>
 
     <div class="bg-img">
       
         <div id="container" class="ct"> 
           <div class="row">
             
-                <form class="col col-md-6 mt-4 mb-5 align-self-center offset-md-3" action="url/to/submit" method="post">
+                <form class="col col-md-6 mt-5 mb-5 align-self-center offset-md-3" method="post">
                 
                   <div class="center">
                     <div class="form-group">
                       <label for="exampleFormControlInput1"> 
                         <h3>                    
-                          <span class="label label-warning"> 
+                          <span class="label label-warning"  style="color: white; background-color: goldenrod; border-radius: 7px; padding: 2px; padding-left: 5px; padding-right: 5px;"> 
                             <strong>  Student Id </strong>  (username)
                           </span>
                         </h3>
                       </label>
                     </div> 
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Put your college Id. ex: 17ceuog041" required>
+                    <input type="text" class="form-control mt-2" id="exampleFormControlInput1" placeholder="Put your college Id. ex: 17ceuog041" required>
                   </div>
                         
                   <div class="form-group">
-                    <div class="center">
+                    <div class="center mt-4" >
                       <label for="exampleFormControlSelect1">
                         <h3> 
-                          <span class="label label-warning"> 
+                          <span class="label label-warning" style="color: white; background-color: goldenrod; border-radius: 7px; padding: 2px; padding-left: 5px; padding-right: 5px;"> 
                             <strong> Choose your branch </strong>
                           </span>
                         </h3>
@@ -146,9 +145,11 @@
                     </select>
                   </div>
                         
-                  <div class="center">
+                  <div class="center mt-4">
                     <h3>
-                      <span class="label label-warning">  <strong>Enter your marks</strong> (out of 36) </span>
+                      <span class="label label-warning" style="color: white; background-color: goldenrod; border-radius: 7px; padding: 2px; padding-left: 5px; padding-right: 5px;">  
+                        <strong>Enter your marks</strong> (out of 36) 
+                      </span>
                     </h3>
                   </div>
                   <div class="form-row">
@@ -168,7 +169,7 @@
                     </div>
                   </div>
 
-                  <button type="button" class="btn btn-success btn-block collapsible" style="text-align: center;">Submit</button>
+                  <button type="button" class="btn btn-success collapsible" style="text-align: center; background-color: green">Show Me</button>
                   <div class="content">
                     <p>  
                       <div class="alert alert-success" role="alert" style="background-color: #ffb6b9;">
@@ -210,7 +211,8 @@
 
     <!-- REGISTER -->
 
-        <div class="text-center">
+        <div class="text-center mt-4" style="font-family: 'Poppins'">
+              <h3>To Know More...</h3>
               <h3><a href="/register">  <button type="button" class="btn btn-primary font-size: 30px"> REGISTER YOURSELF HERE!!! </button> </a> </h3>
             
               </div>
@@ -218,15 +220,13 @@
             
     <!-- REGISTRE ENDS -->
       
-      <p>
         <br>
         <br>
-      </p>
       
       <!-- footer-->
       
-      <footer class="blog-footer" style=text-align:center>
-        <p>Thank you      <a href="/">   Resino    </a> by   <a href="www.csi.ac.in">  @csi  </a>  . </p>
+      <footer class="blog-footer font" style="text-align:center;" >
+        <p>Thank you      <a href="/">   Resino    </a> by   <a href="https://www.csiddu.in" target="_blank">  @csi  </a>  . </p>
         <p>
           <a href="#">Back to top</a>
         </p>
