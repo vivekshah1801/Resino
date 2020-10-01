@@ -1,0 +1,29 @@
+.blog-footer {
+		position: absolute;
+		padding: 2.5rem 0;
+		text-align: center;
+		background-color: #beebe9;
+		border-top: .05rem solid #e5e5e5;
+		bottom: 0;
+		}
+.blog-footer p:last-child {
+		margin-bottom: 0;
+		}
+    .bg-img{
+      background-image: url("https://image.freepik.com/free-photo/education-concept-students-studying-brainstorming-campus-concept-close-up-students-discussing-their-subject-books-textbooks-writing-notebook-selective-focus_1418-1221.jpg");
+	background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+	  }
+	  
+	  .font{
+				font-family: "Lucida Console", Courier, monospace;
+				
+		font-size: 22px;
+	  }
+
+	  .center{
+		  text-align: center;
+		 
+	  }

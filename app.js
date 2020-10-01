@@ -31,7 +31,6 @@ con.connect( function(err) {
 });
 
 var name, ID, pass, branch, sem, email, contact, univ;
-var logged_in_user_id
 
 app.get('/', function(req,res){
     res.sendFile(__dirname + '/views/HOME.html');
@@ -78,16 +77,16 @@ app.get('/login', function(req,res){
 });
 
 app.get('/current_user' , function(req, res) {
-    con.query( "SELECT * FROM user WHERE student_id='"+logged_in_user_id+"'", function (err, result, fields) {
+    con.query( "SELECT * FROM user WHERE student_id='"+ req.session.logged_in_user_id+"'", function (err, result, fields) {
         if (err) throw err;
         res.json(result);
     })
 });
 
 app.get('/dashboard', function(req,res) {
-    if (req.session.loggedIn && logged_in_user_id!="")
+    if (req.session.loggedIn && req.session.logged_in_user_id!="")
     {
-        con.query( "SELECT * FROM user WHERE student_id='" + logged_in_user_id + "'", function (err, result, fields) {
+        con.query( "SELECT * FROM user WHERE student_id='" + req.session.logged_in_user_id + "'", function (err, result, fields) {
             if (err) throw err;
             res.sendFile(__dirname + '/views/dashboard.html');
         })
@@ -122,7 +121,7 @@ app.post('/register_user', function(req,res){
     univ = req.body.univ;
     batch = req.body.batch;
     req.session.loggedIn = true
-    logged_in_user_id = ID
+    req.session.logged_in_user_id = ID
     var sql = "INSERT INTO user VALUES ('" + ID + "','" + name + "','" + pass + "','"+ branch+"','"+ sem +"','"+ email + "','" + contact + "','" + univ + "','" + batch + "');"
     con.query( sql, function(err, result ){
         if (err) throw err;
@@ -143,8 +142,8 @@ app.post('/login_user', function(req,res){
             console.log(result);
             if ( result.length > 0 )
             {
-                logged_in_user_id = ID
-                console.log(logged_in_user_id)
+                req.session.logged_in_user_id = ID
+                console.log(req.session.logged_in_user_id)
             }
             res.send(result)
         });
@@ -152,7 +151,7 @@ app.post('/login_user', function(req,res){
 });
 
 app.get('/logout', function(req,res){
-    logged_in_user_id = ""
+    req.session.logged_in_user_id = ""
     req.session.loggedIn = false
     res.redirect('/login');
 });
@@ -194,14 +193,14 @@ app.post('/add_exam', function(req,res) {
 })
 
 app.post('/marks', function(req,res) {
-    if (req.session.loggedIn && logged_in_user_id!="")
+    if (req.session.loggedIn && req.session.logged_in_user_id!="")
     {
         var exam_id = req.body.exam_id
         var student_ID = req.body.student_id
         var marks = req.body.marks
         var status = req.body.status
         
-        var sql = "INSERT INTO marks VALUES ('" + exam_id + "','" + logged_in_user_id + "','" + marks +"','"+ status +"');"
+        var sql = "INSERT INTO marks VALUES ('" + exam_id + "','" + req.session.logged_in_user_id + "','" + marks +"','"+ status +"');"
         con.query( sql, function(err, result ){
             if (err) throw err;
             console.log(result);
@@ -213,13 +212,13 @@ app.post('/marks', function(req,res) {
 })
 
 app.post('/add_spi', function(req,res) {
-    if (req.session.loggedIn && logged_in_user_id!="")
+    if (req.session.loggedIn && req.session.logged_in_user_id!="")
     {
         var student_ID = req.body.ID
         var sem = req.body.sem
         var spi = req.body.spi
         
-        var sql = "INSERT INTO student_spi_cpi (student_id, sem, spi) VALUES ('" + logged_in_user_id + "','" + sem + "','" + spi +"');"
+        var sql = "INSERT INTO student_spi_cpi (student_id, sem, spi) VALUES ('" + req.session.logged_in_user_id + "','" + sem + "','" + spi + "') ON DUPLICATE KEY UPDATE spi = '" + spi + "'"
         con.query( sql, function(err, result ){
             if (err) throw err;
             console.log(result);
@@ -233,9 +232,9 @@ app.post('/add_spi', function(req,res) {
 app.post('/generate_sess_charts', function(req,res) {
     var student_ID = req.body.ID
     
-    if (req.session.loggedIn && logged_in_user_id!="")
+    if (req.session.loggedIn && req.session.logged_in_user_id!="")
     {
-        var sql = "SELECT subject_code,exam_type,marks_obtained,sem FROM exam NATURAL JOIN marks NATURAL JOIN subject WHERE student_id = '"+ logged_in_user_id +"' and exam_type LIKE 'sessional%' and branch = 'CE' ";
+        var sql = "SELECT subject_code,exam_type,marks_obtained,sem FROM exam NATURAL JOIN marks NATURAL JOIN subject WHERE student_id = '"+ req.session.logged_in_user_id +"' and exam_type LIKE 'sessional%' and branch = 'CE' ";
         con.query( sql, function(err, result ){
             if (err) throw err;
             console.log(result);
@@ -248,9 +247,9 @@ app.post('/generate_sess_charts', function(req,res) {
 
 app.post('/generate_ext_charts', function(req,res) {
     var student_ID = req.body.ID
-    if (req.session.loggedIn && logged_in_user_id!="")
+    if (req.session.loggedIn && req.session.logged_in_user_id!="")
     {
-        var sql = "SELECT subject_code,exam_type,marks_obtained,sem,credit FROM exam NATURAL JOIN marks NATURAL JOIN subject WHERE student_id = '"+ logged_in_user_id +"' and exam_type LIKE 'External%' and branch = 'CE' ";
+        var sql = "SELECT subject_code,exam_type,marks_obtained,sem,credit FROM exam NATURAL JOIN marks NATURAL JOIN subject WHERE student_id = '"+ req.session.logged_in_user_id +"' and exam_type LIKE 'External%' and branch = 'CE' ";
         con.query( sql, function(err, result ){
             if (err) throw err;
             console.log(result);
@@ -263,9 +262,9 @@ app.post('/generate_ext_charts', function(req,res) {
 app.post('/sem_wise_charts', function(req,res) {
     var student_ID = req.body.ID
     
-    if (req.session.loggedIn && logged_in_user_id!="")
+    if (req.session.loggedIn && req.session.logged_in_user_id!="")
     {
-        var sql = "SELECT * FROM student_spi_cpi WHERE student_id = '"+ logged_in_user_id +"'";
+        var sql = "SELECT * FROM student_spi_cpi WHERE student_id = '"+ req.session.logged_in_user_id +"'";
         con.query( sql, function(err, result ){
             if (err) throw err;
             console.log(result);
@@ -277,7 +276,7 @@ app.post('/sem_wise_charts', function(req,res) {
 })
 app.post('/sem_avg_charts', function(req,res) {
     
-    if (req.session.loggedIn && logged_in_user_id!="")
+    if (req.session.loggedIn && req.session.logged_in_user_id!="")
     {
         var student_ID = req.body.ID
         var branch = req.body.branch
@@ -295,13 +294,13 @@ app.post('/sem_avg_charts', function(req,res) {
 })
 
 app.post('/get_my_sess_marks', function(req,res) {
-    if (req.session.loggedIn && logged_in_user_id!="")
+    if (req.session.loggedIn && req.session.logged_in_user_id!="")
     {
         var student_ID = req.body.ID
         var sem = req.body.sem
         var branch = req.body.branch
         
-        var sql = "SELECT distinct sem,exam_type,exam_id,marks_obtained,subject_code FROM marks NATURAL JOIN exam NATURAL JOIN subject WHERE exam_type LIKE 'Sessional%' AND student_id = '" + logged_in_user_id + "' AND sem=" + sem + " AND branch='" + branch + "'";
+        var sql = "SELECT distinct sem,exam_type,exam_id,marks_obtained,subject_code FROM marks NATURAL JOIN exam NATURAL JOIN subject WHERE exam_type LIKE 'Sessional%' AND student_id = '" + req.session.logged_in_user_id + "' AND sem=" + sem + " AND branch='" + branch + "'";
         con.query( sql, function(err, result ){
             if (err) throw err;
             console.log(result);
@@ -314,7 +313,7 @@ app.post('/get_my_sess_marks', function(req,res) {
 
 app.post('/get_avg_sess_marks', function(req,res) {
     
-    if (req.session.loggedIn && logged_in_user_id!="")
+    if (req.session.loggedIn && req.session.logged_in_user_id!="")
     {
         var student_ID = req.body.ID
         var sem = req.body.sem
