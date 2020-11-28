@@ -2,32 +2,41 @@
     <head>
         <title>Register</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+        <style>
+            a:hover{
+                text-decoration: none
+            }
+            .font{
+                font-family: 'Poppins'
+            }
+        </style>
     </head>
-    <body>
+    <body style="background-color: #343A40">
          <!-- NAVBAR STARTS -->
 
-         <nav class="navbar navbar-expand-lg site-header sticky-top py-1"  style= "background-color: #f4eeff;">
+         <nav class="navbar navbar-expand-lg site-header sticky-top py-1"  style= "background-color: #beebe9">
+
      
             <div class="container d-flex flex-column flex-md-row justify-content-between">
               <a class="py-2" href="/" aria-label="Product">
-                <svg xmlns="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSvPFOw1bQ5mtMPkEn_iUwLcSGFksFHEq9BAA&usqp=CAU" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 25 25" focusable="false">
-            <title>Logo</title>
-            <circle cx="12" cy="12" r="11"/>
-            <path xmlns="https://i.pinimg.com/originals/4a/8a/f3/4a8af3d932e3d5b4f83f6bdd99e45e3b.png"/>
-                </svg>
+                <img src="images/logo.png" style="height: 40px; margin-top: -5px"/><b><span style="margin-left: -17%;vertical-align: text-top; color: black; ">ESINO</span></b>
+
               </a>
-              <a class="py-2 d-none d-md-inline-block" href="/register"> Register </a>
-              <a class="py-2 d-none d-md-inline-block" href="#"> Meet our team </a>
-              <a class="py-2 d-none d-md-inline-block" href="/login"> Login </a>
+              <span style="color: grey; font-size: 25px " >|</span>
+              <a class="py-2 d-none d-md-inline-block font" href="/register"> Register </a> <span style="color: grey; font-size: 25px " >|</span> 
+              <a class="py-2 d-none d-md-inline-block font" href="/team"> Meet our team </a> <span style="color: grey; font-size: 25px " >|</span> 
+              <a class="py-2 d-none d-md-inline-block font" href="/login"> Login </a>
 
             </div>
           </nav>
 
       <!-- NAVBAR ENDS -->
-    <div style="margin: 40;" >
-        <div class="container col-md-7" style="border-style: solid; border-width: 1; border-radius: 25px; padding: 10px; padding-left: 25px; padding-right: 25px;">
-            <h3>Register Yourself</h3>
+    <div style="margin: 40; font-family: 'Poppins'" >
+        <div class="container col-md-7" style="border-style: solid; border-width: 1; border-radius: 25px; padding: 10px; padding-left: 25px; padding-right: 25px; background-color: snow">
+            <h3 style="text-align: center; font-family: 'Poppins'; letter-spacing: 1px"><b>Register Yourself</b></h3><hr>
+
             <form method="POST">
                 <div class="form-group">
                     <label>Student ID: </label>&nbsp;
@@ -87,14 +96,16 @@
                     <label>Year of joining: </label>&nbsp;
                     <input type="number" class="form-control" id="batch">
                 </div>
-                <button type="button" class="btn btn-primary" id="submit">Submit</button>
+                <center><button type="button" class="btn btn-primary" id="submit" style="width: 25%">Register</button>
+                <br><br>    <p>Already have an account? <a href="/login">Login Here</a></p>
+                </center>
             </form>
         </div>
         </div>
          <!-- footer-->
       
-      <footer class="blog-footer" style="text-align:center; background-color: #beebe9; height: 12%;">
-        <p>Thank you      <a href="/">   Resino    </a> by   <a href="www.csi.ac.in">  @csi  </a>  . </p>
+         <footer class="font" style="padding: 10px; text-align:center;  background-color: #beebe9; width: 100%; height: 90px;">
+            <p>Thank you      <a href="/">   Resino    </a> by   <a href="https://www.csiddu.in" target="_blank">  @csi  </a>  . </p>
         <p>
           <a href="#">Back to top</a>
         </p>

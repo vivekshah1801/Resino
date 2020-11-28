@@ -5,6 +5,7 @@ var app = express();
 var session = require('express-session');
 app.use(bodyparser.json());
 app.use(express.urlencoded({extended: true}));
+app.use(express.static('public/assets'))
 
 
 app.use(function(req, res, next) {
@@ -22,7 +23,7 @@ app.use(session({
 var con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "pkp010900",
+    password: "Royalcare@123",
     database: "Result_analytics"
 });
 con.connect( function(err) {
@@ -74,6 +75,10 @@ app.get('/each_sess_avg', function(req,res){
 
 app.get('/login', function(req,res){
     res.sendFile(__dirname + '/views/login.html');
+});
+
+app.get('/team', function(req,res){
+    res.sendFile(__dirname + '/views/team.html');
 });
 
 app.get('/current_user' , function(req, res) {

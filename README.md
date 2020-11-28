@@ -24,16 +24,3 @@
 
 * After adding all the information, user can view his/her performance till current semester and view insights about the same.
 
-
----
-
-### CSV to Database ingestion
-
-* TO validate the csv file, run the csvvalidator.py file
-
-* If output of first file return with prompt then run next command
-	python csv_db.py "localhost" "username" "password" "database_name" "port"
-
-		Ex: python csv_db.py localhost root dhruval csi 3307
-
-* If output print any message then solve it.

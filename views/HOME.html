@@ -10,9 +10,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
 <style>
   .blog-footer {
-		padding: 2.5rem 0;
+		padding: 1rem 0;
 		text-align: center;
 		background-color: #beebe9;
 		border-top: .05rem solid #e5e5e5;
@@ -22,16 +25,15 @@
 		}
     .bg-img{
       background-image: url("https://image.freepik.com/free-photo/education-concept-students-studying-brainstorming-campus-concept-close-up-students-discussing-their-subject-books-textbooks-writing-notebook-selective-focus_1418-1221.jpg");
-	background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
 	  }
 	  
 	  .font{
-				font-family: "Lucida Console", Courier, monospace;
+				font-family: 'Poppins';
 				
-		font-size: 22px;
 	  }
 
 	  .center{
@@ -60,49 +62,47 @@
   overflow: hidden;
   background-color: #f1f1f1;
 }
-
+a:hover{
+  text-decoration: none
+}
 	
 </style>
   
 	</head>
 	
-	<body>
+	<body style="overflow-x: hidden">
 
         <!-- NAVBAR STARTS -->
+        <nav class="navbar navbar-expand-lg site-header sticky-top py-1"  style= "background-color: #beebe9">
 
-      <nav class="navbar navbar-expand-lg site-header sticky-top py-1"  style= "background-color: #f4eeff">
      
-        <div class="container d-flex flex-column flex-md-row justify-content-between">
-          <a class="py-2" href="/" aria-label="Product">
-            <svg xmlns="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSvPFOw1bQ5mtMPkEn_iUwLcSGFksFHEq9BAA&usqp=CAU" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 25 25" focusable="false">
-        <title>Logo</title>
-        <circle cx="12" cy="12" r="11"/>
-        <path xmlns="https://i.pinimg.com/originals/4a/8a/f3/4a8af3d932e3d5b4f83f6bdd99e45e3b.png"/>
-            </svg>
-          </a>
-          <a class="py-2 d-none d-md-inline-block" href="/register"> Register </a>
-          <a class="py-2 d-none d-md-inline-block" href="#"> Meet our team </a>
-          <a class="py-2 d-none d-md-inline-block" href="/login"> Login </a>
-
-        </div>
-      </nav>
+          <div class="container d-flex flex-column flex-md-row justify-content-between">
+            <a class="py-2" href="/" aria-label="Product">
+              <img src="images/logo.png" style="height: 40px; margin-top: -5px"/><b><span style="margin-left: -17%;vertical-align: text-top; color: black; ">ESINO</span></b>
+            </a>
+            <span style="color: grey; font-size: 25px " >|</span>
+            <a class="py-2 d-none d-md-inline-block font" href="/register"> Register </a> <span style="color: grey; font-size: 25px " >|</span> 
+            <a class="py-2 d-none d-md-inline-block font" href="/team"> Meet our team </a> <span style="color: grey; font-size: 25px " >|</span> 
+            <a class="py-2 d-none d-md-inline-block font" href="/login"> Login </a>
+            
+          </div>
+        </nav>
 
       <!-- NAVBAR ENDS -->
 
       <!-- 	MAIN STARTS -->
 
-      <main role="main">
-        <div class="jumbotron" style= "background-color: #a1e6e3">
+      <main role="main" style="font-family: 'Poppins'" >
+        <div class="jumbotron" style= "background-color: #343A40; color: white">
           <div class="container">
-            <h3 class="display-3">Hello, guys!</h3>
-              <p> Welcome to our website..... <br>
-                  LETS GET STARTED...	  </p>
+            <h4 class="display-4">Welcome to our Result Analysis Engine...</h4>
+                <h4> LET'S WREAK HAVOC...	</h4>  
           </div>
         </div>
       </main>
       
     <!-- MAIN ENDS -->
-    <p class="text-center display-3" style="font-size:40px"> Test your knowledge</p>
+    <p class="text-center display-3" style="font-size:40px; font-family: 'Poppins'"> What do you desire ?</p>
 
     <div class="bg-img">
       
@@ -111,75 +111,195 @@
             
                 <form class="col col-md-6 mt-5 mb-5 align-self-center offset-md-3" action="url/to/submit" method="post">
                 
-                  <div class="center">
-                    <div class="form-group">
-                      <label for="exampleFormControlInput1"> 
-                        <h3>                    
-                          <span class="label label-warning"  style="color: white; background-color: goldenrod; border-radius: 7px; padding: 2px; padding-left: 5px; padding-right: 5px;"> 
-                            <strong>  Student Id </strong>  (username)
-                          </span>
-                        </h3>
-                      </label>
-                    </div> 
-                    <input type="text" class="form-control mt-2" id="exampleFormControlInput1" placeholder="Put your college Id. ex: 17ceuog041" required>
-                  </div>
-                        
-                  <div class="form-group">
-                    <div class="center mt-4" >
-                      <label for="exampleFormControlSelect1">
-                        <h3> 
-                          <span class="label label-warning" style="color: white; background-color: goldenrod; border-radius: 7px; padding: 2px; padding-left: 5px; padding-right: 5px;"> 
-                            <strong> Choose your branch </strong>
-                          </span>
-                        </h3>
-                      </label>
-                    </div>
-                          
-                    <select class="form-control" id="exampleFormControlSelect1" placeholder="Choose your branch">
-                      <option>CE</option>
-                      <option>IT</option>
-                      <option>EC</option>
-                      <option>CH</option>
-                      <option>CL</option>
-                      <option>MH</option>
-                      <option>IC</option>
-                    </select>
-                  </div>
-                        
-                  <div class="center mt-4">
+                  <div class="center" >
                     <h3>
-                      <span class="label label-warning" style="color: white; background-color: goldenrod; border-radius: 7px; padding: 2px; padding-left: 5px; padding-right: 5px;">  
-                        <strong>Enter your marks</strong> (out of 36) 
-                      </span>
+                      <span class="label label-warning" style="font-family: 'Poppins'">  <strong>Marks Predictor </strong></span>
                     </h3>
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-4">
-                      <label for="inputCity"></label>
-                        <input type="text" class="form-control" id="inputCity" placeholder="Sessional 1">
+                        <input type="number" class="form-control" id="s1" placeholder="Sessional 1">
                     </div>
                     
                     <div class="form-group col-md-4">
-                      <label for="inputCity"></label>
-                        <input type="text" class="form-control" id="inputCity" placeholder="Sessional 1">
+                        <input type="number" class="form-control" id="s2" placeholder="Sessional 2">
                     </div>
                     
                     <div class="form-group col-md-4">
-                      <label for="inputCity"></label>
-                        <input type="text" class="form-control" id="inputCity" placeholder="Sessional 3">
+                        <input type="number" class="form-control" id="s3" placeholder="Sessional 3">
                     </div>
                   </div>
+                  <div class="center">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1"> 
+                        <h3>                    
+                          <span class="label label-warning"> 
+                            <strong style="font-family: 'Poppins'"> Practial Marks </strong>
+                          </span>
+                        </h3>
+                      </label>
+                    </div> 
+                    <input type="number" class="form-control" id="pr" placeholder="out of 50" required>
+                  </div><br>
+                  
+                  <button type="button" class="btn btn-success collapsible" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="text-align: center; background-color: #367E35;" onclick="predict()" >Predict</button>
+                  
+                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title" id="exampleModalLabel">Graph Prediction</h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                              <h6><b>Assumption:</b> Your attendence is 100% :)</h6>
+                              <h6><b>+ve:</b> Minimum marks required to reach that CPI</h6>
+                              <h6><b>-ve:</b> You cannot achieve that CPI</h6>
+                              <canvas id="graph"></canvas>
+                               <p id="err"></p> 
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-danger" data-dismiss="modal" >Close</button>
+                              <!-- <button type="button" class="btn btn-primary">Save</button> -->
+                          </div>
+                            <script>
+                              function predict(){
+                              var s1=document.getElementById("s1").value;
+                              var s2=document.getElementById("s2").value;
+                              var s3=document.getElementById("s3").value;
+                              var pr=document.getElementById("pr").value;
+                              s1=parseInt(s1,10);
+                              s2=parseInt(s2,10);
+                              s3=parseInt(s3,10);
+                              pr=parseInt(pr,10);
+                              if ( isNaN(s1) )
+                              {
+                                alert("Enter Sessional 1 Marks");
+                                location.reload();
+                              }
+                              else if ( isNaN(s2) )
+                              {
+                                alert("Enter Sessional 2 Marks");
+                                location.reload();
+                              }
+                              else if ( isNaN(s3) )
+                              {
+                                alert("Enter Sessional 3 Marks");
+                                location.reload();
+                              }
+                              else if ( isNaN(pr) )
+                              {
+                                alert("Enter Practical Marks");
+                                location.reload();
+                              }
+                              //var viva=document.getElementById("viva").value;
+                              
+                              if((s1<0 || s1>36) || (s2<0 || s2>36) || (s3<0 || s3>36) || (pr<0 || pr>50)){
+                                if(s1<0 || s1>36){
+                                    
+                                    document.getElementById("err").innerHTML="Error: Enter the sessional 1 marks in range 0 to 36";
+                                }
+                                else{
+                                  if(s2<0 || s2>36){
+                                    document.getElementById("err").innerHTML="Error: Enter the sessional 2 marks in range 0 to 36";
 
-                  <button type="button" class="btn btn-success btn-block collapsible" style="text-align: center;">Submit</button>
-                  <div class="content">
-                    <p>  
-                      <div class="alert alert-success" role="alert" style="background-color: #ffb6b9;">
-                        <h4 class="alert-heading">Well done!</h4>
-                      <hr>
-                          <p class="mb-0">If you want to get a detailed analysis about your knowledge, Register youself</p>
-                      </div>
-                    </p>
+                                  }
+                                  else{
+                                    if(s3<0 || s3>36){
+                                      document.getElementById("err").innerHTML="Error: Enter the sessional 3 marks in range 0 to 36";
+
+                                    }
+                                    else{
+                                      if((pr<0 || pr>36)){
+                                        document.getElementById("err").innerHTML="Error: Enter the practical marks in range 0 to 50";
+
+                                      }
+                                    }
+                                  }                       
+                                }
+                              }else{
+                                document.getElementById("err").innerHTML = "";
+                                var ten=127-((s1+s2+s3)/3 + 4 + pr);
+                                var nine=112-((s1+s2+s3)/3 + 4 + pr);
+                                var eight=92-((s1+s2+s3)/3 + 4 + pr);
+                                var seven=80-((s1+s2+s3)/3 + 4 + pr);
+                                var six=70-((s1+s2+s3)/3 + 4 + pr);
+
+                                if(ten<0)
+                                  ten=0;
+                                if(nine<0)
+                                  nine=0; 
+                                if(eight<0)
+                                  eight=0;
+                                if(seven<0)
+                                  seven=0;
+                                if(six<0)
+                                  six=0;
+
+                                if(ten>60)
+                                  ten=-20;
+                                if(nine>60)
+                                  nine=-20; 
+                                if(eight>60)
+                                  eight=-20;
+                                if(seven>60)
+                                  seven=-20;
+                                if(six>60)
+                                  six=-20;
+                                list=[];
+                              /// list.append(ten);
+                              // console.log(list);
+                                var ctx2 = document.getElementById('graph').getContext('2d');
+                                var chart2 = new Chart(ctx2, {
+                                  type: 'bar',
+                      
+                                  data: {
+                                      labels: [6,7,8,9,10], 
+                                      datasets: [{
+                                          label: 'Required External Marks',
+                                          backgroundColor: "rgba(200,0,0,0.2)",
+                                          data: [six,seven,eight,nine,ten]   //marks
+                                      }]
+                                  },
+                                  hover: {
+                                    mode: 'label'
+                                  },
+                                  options: {
+                                    scales: {
+                                        xAxes: [{
+                                                display: true,
+                                                scaleLabel: {
+                                                    display: true,
+                                                    labelString: 'Pointer'
+                                                }
+                                            }],
+                                        yAxes: [{
+                                                display: true,
+                                                ticks: {
+                                                    //beginAtZero: true,
+                                                    steps: 5,
+                                                    stepValue: 5,
+                                                    max: 60
+                                                }
+                                          }]
+                                      },
+                                      title: {
+                                          display: true,
+                                          
+                                      }
+                                  }
+                                });
+                              }}
+                              
+                          </script>
+                            
+                        </div>
+                    </div>
                   </div>
+                  
+                  
                   <script>
                     var coll = document.getElementsByClassName("collapsible");
                     var i;
@@ -204,31 +324,26 @@
       
     </div>
             
-    <!-- Registration Form End -->
-
-    
-
-
 
     <!-- REGISTER -->
 
-        <div class="text-center mt-4">
+        <div class="text-center mt-4" style="font-family: 'Poppins'">
+              <h3>To Know More...</h3>
+
               <h3><a href="/register">  <button type="button" class="btn btn-primary font-size: 30px"> REGISTER YOURSELF HERE!!! </button> </a> </h3>
             
               </div>
         </div>
             
-    <!-- REGISTRE ENDS -->
+    <!-- REGISTER ENDS -->
       
-      <p>
         <br>
         <br>
-      </p>
       
       <!-- footer-->
       
-      <footer class="blog-footer" style=text-align:center>
-        <p>Thank you      <a href="/">   Resino    </a> by   <a href="www.csi.ac.in">  @csi  </a>  . </p>
+      <footer class="blog-footer font" style="text-align:center;" >
+        <p>Thank you      <a href="/">   Resino    </a> by   <a href="https://www.csiddu.in" target="_blank">  @csi  </a>  . </p>
         <p>
           <a href="#">Back to top</a>
         </p>
